@@ -17,3 +17,20 @@ vagrant ssh-config --host webdb >> ~/.ssh/config
 ```
 curl -L https://www.opscode.com/chef/install.sh | sudo bash
 ```
+
+### 2.4
+```
+sudo knife cookbook create hello -o /var/chef/cookbooks
+
+sudo chef-solo -o hello
+```
+補足
+```
+sudo mkdir /etc/chef
+sudo vi /etc/chef/solo.rb
+```
+
+```
+# Verify all HTTPS connections (recommended)
+ssl_verify_mode :verify_peer
+```
