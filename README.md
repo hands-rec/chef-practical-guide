@@ -22,6 +22,15 @@ curl -L https://www.opscode.com/chef/install.sh | sudo bash
 ```
 sudo knife cookbook create hello -o /var/chef/cookbooks
 
+sudo vi /var/chef/cookbooks/hello/recipes/default.rb
+
+```
+
+```
+log “Hello, World!”
+```
+
+```
 sudo chef-solo -o hello
 ```
 
@@ -61,4 +70,25 @@ sudo vi /etc/chef/solo.rb
 ```
 # Verify all HTTPS connections (recommended)
 ssl_verify_mode :verify_peer
+```
+
+## 2.5
+
+```
+sudo knife cookbook create dstat -o /var/chef/cookbooks
+```
+
+/var/chef/cookbooks/dstat/recipes/default.rb
+'''
+package "dstat" do
+  action :install
+end
+```
+
+```
+sudo chef-solo -o hello,dstat
+```
+
+```
+rpm -q dstat
 ```
