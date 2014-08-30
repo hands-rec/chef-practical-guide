@@ -57,7 +57,7 @@ sudo mkdir /etc/chef
 sudo vi /etc/chef/solo.rb
 ```
 
-/etc/chef/solo.rb
+* /etc/chef/solo.rb
 ```
 # Verify all HTTPS connections (recommended)
 ssl_verify_mode :verify_peer
