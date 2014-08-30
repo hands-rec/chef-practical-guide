@@ -51,7 +51,7 @@ To check your SSL configuration, or troubleshoot errors, you can use the
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-下記追加
+下記を追加
 ```
 sudo mkdir /etc/chef
 sudo vi /etc/chef/solo.rb
