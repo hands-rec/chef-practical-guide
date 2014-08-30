@@ -23,6 +23,7 @@ curl -L https://www.opscode.com/chef/install.sh | sudo bash
 sudo knife cookbook create hello -o /var/chef/cookbooks
 
 sudo chef-solo -o hello
+```
 
 アラート
 
