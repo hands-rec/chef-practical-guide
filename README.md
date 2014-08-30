@@ -24,12 +24,40 @@ sudo knife cookbook create hello -o /var/chef/cookbooks
 
 sudo chef-solo -o hello
 ```
-補足
+
+アラート
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+SSL validation of HTTPS requests is disabled. HTTPS connections are still
+encrypted, but chef is not able to detect forged replies or man in the middle
+attacks.
+
+To fix this issue add an entry like this to your configuration file:
+
+```
+  # Verify all HTTPS connections (recommended)
+  ssl_verify_mode :verify_peer
+
+  # OR, Verify only connections to chef-server
+  verify_api_cert true
+```
+
+To check your SSL configuration, or troubleshoot errors, you can use the
+`knife ssl check` command like so:
+
+```
+  knife ssl check -c /etc/chef/solo.rb
+```
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+下記を追加
 ```
 sudo mkdir /etc/chef
 sudo vi /etc/chef/solo.rb
 ```
 
+* /etc/chef/solo.rb
 ```
 # Verify all HTTPS connections (recommended)
 ssl_verify_mode :verify_peer
