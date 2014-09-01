@@ -79,7 +79,7 @@ sudo knife cookbook create dstat -o /var/chef/cookbooks
 ```
 
 /var/chef/cookbooks/dstat/recipes/default.rb
-'''
+```
 package "dstat" do
   action :install
 end
