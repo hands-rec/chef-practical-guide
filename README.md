@@ -92,3 +92,75 @@ sudo chef-solo -o hello,dstat
 ```
 rpm -q dstat
 ```
+
+
+## 2.6
+### install knife-solo, Berkshelf
+```
+bundle init
+```
+
+* Gemfile
+```
+gem "knife-solo"
+gem "berkshelf"
+```
+
+```
+bundle install --path vendor/bundle
+```
+
+### create repository with knife-solo
+```
+bundle exec knife solo init .
+```
+
+### install Chef Solo with knife-solo
+```
+bundle exec knife solo bootstrap webdb
+```
+
+アラート
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+SSL validation of HTTPS requests is disabled. HTTPS connections are still
+encrypted, but chef is not able to detect forged replies or man in the middle
+attacks.
+
+To fix this issue add an entry like this to your configuration file:
+
+```
+  # Verify all HTTPS connections (recommended)
+  ssl_verify_mode :verify_peer
+
+  # OR, Verify only connections to chef-server
+  verify_api_cert true
+```
+
+To check your SSL configuration, or troubleshoot errors, you can use the
+`knife ssl check` command like so:
+
+```
+  knife ssl check -c /home/vagrant/chef-solo/solo.rb
+```
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+下記の部分を変更
+
+* /home/vagrant/chef-solo/solo.rb
+```
+ssl_verify_mode :verify_peer
+```
+
+### create cookbook
+```
+bundle exec knife cookbook create dstat -o site-cookbooks
+```
+
+site-cookbooks/dstat/recipes/default.rb
+```
+package "dstat" do
+  action :install
+end
+```
