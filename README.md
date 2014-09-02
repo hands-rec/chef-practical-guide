@@ -183,6 +183,7 @@ nodes/webdb.json
     "ipaddress": "webdb"
   }
 }
+```
 
 site-cookbooks/apache/recipes/default.rb
 ```
