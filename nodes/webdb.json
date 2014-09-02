@@ -1,6 +1,8 @@
 {
   "run_list":[
-    "recipe[dstat]"
+    "recipe[dstat]",
+    "recipe[apache]",
+    "recipe[mysql]"
   ],
   "automatic": {
     "ipaddress": "webdb"
