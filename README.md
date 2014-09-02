@@ -218,6 +218,7 @@ $ ps auxw | egrep "(httpd|mysqld)"
 ```
 $ cp /etc/httpd/conf/httpd.conf /vagrant/site-cookbooks/apache/templates/default/httpd.conf.erb
 ```
+
 site-cookbooks/apache/recipes/default.rb
 ```
 template "httpd.conf" do
