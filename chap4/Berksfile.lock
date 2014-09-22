@@ -1,0 +1,20 @@
+DEPENDENCIES
+  apache2
+  mysql
+  yum-epel
+
+GRAPH
+  apache2 (2.0.0)
+    iptables (>= 0.0.0)
+    logrotate (>= 0.0.0)
+    pacman (>= 0.0.0)
+  iptables (0.14.0)
+  logrotate (1.7.0)
+  mysql (5.5.2)
+    yum-mysql-community (>= 0.0.0)
+  pacman (1.1.1)
+  yum (3.3.2)
+  yum-epel (0.5.1)
+    yum (~> 3.0)
+  yum-mysql-community (0.1.10)
+    yum (>= 3.0)
